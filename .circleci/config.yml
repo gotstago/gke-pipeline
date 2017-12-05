@@ -9,6 +9,9 @@ jobs:
       - checkout
       - setup_docker_engine
       - run:
+          name: Add docker
+          command: apk add -U docker
+      - run:
           name: Build image
           command: docker build -t demo .
       - run:
