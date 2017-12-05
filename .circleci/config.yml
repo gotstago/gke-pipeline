@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version
-      - image: docker:dind
+      - image: google/cloud-sdk:alpine
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
@@ -11,3 +11,6 @@ jobs:
       - run:
           name: Build image
           command: docker build -t demo .
+      - run:
+          name: Install gcloud stuff
+          command: gcloud components install kubectl
