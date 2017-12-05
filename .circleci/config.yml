@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    docker:
+      # specify the version
+      - image: circleci/golang:1.8
+    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
       - setup_docker_engine
